@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge2</title>
+</head>
+
+<body>
+    <script>
+        function bmi(mass, height) {
+            return mass / (height ** 2);
+        }
+
+        //data1
+        markBMI = bmi(78, 1.69);
+        johnBMI = bmi(92, 1.95);
+        markHigherBMI = markBMI > johnBMI;
+        console.log("//test data1");
+        console.log("BMI của Mark: " + markBMI);
+        console.log("BMI của John: " + johnBMI);
+        if (markHigherBMI) {
+            console.log("BMI của Mark cao hơn BMI của John!");
+        } else {
+            console.log("BMI của John cao hơn BMI của Mark!");
+        }
+
+        //data2
+        markBMI = bmi(95, 1.88);
+        johnBMI = bmi(85, 1.76);
+        markHigherBMI = markBMI > johnBMI;
+        console.log("//test data2");
+        console.log("BMI của Mark: " + markBMI);
+        console.log("BMI của John: " + johnBMI);
+        if (markHigherBMI) {
+            console.log("BMI của Mark cao hơn BMI của John!");
+
+        } else {
+            console.log("BMI của John cao hơn BMI của Mark!");
+        }
+
+    </script>
+</body>
+
+</html>
