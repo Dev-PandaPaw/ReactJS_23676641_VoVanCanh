@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge3</title>
+</head>
+
+<body>
+    <script>
+        function Avg(sc1, sc2, sc3) {
+            return (sc1 + sc2 + sc3) / 3;
+        }
+
+        //data1
+        let dolphinsAvg = Avg(96, 108, 89);
+        let koalasAvg = Avg(88, 91, 110);
+
+        console.log("//test data1");
+        console.log("Điểm trung bình của đội Dolphins: " + dolphinsAvg.toFixed(2));
+        console.log("Điểm trung bình của đội Koalas: " + koalasAvg.toFixed(2));
+        if (dolphinsAvg > koalasAvg && dolphinsAvg >= 100) {
+            console.log("Đội Dolphins chiến thắng!");
+        }
+        else if (dolphinsAvg < koalasAvg && koalasAvg >= 100) {
+            console.log("Đội Koalas chiến thắng!");
+        }
+        else if (dolphinsAvg == koalasAvg && koalasAvg >= 100 && dolphinsAvg >= 100) {
+            console.log("Hai đội hòa nhau!");
+        }
+        else {
+            console.log("Không có đội nào chiến thắng!");
+
+        }
+
+        //data2
+        let dolphinsAvg2 = Avg(97, 112, 101);
+        let koalasAvg2 = Avg(109, 95, 123);
+
+        console.log("//test data2");
+        console.log("Điểm trung bình của đội Dolphins: " + dolphinsAvg2.toFixed(2));
+        console.log("Điểm trung bình của đội Koalas: " + koalasAvg2.toFixed(2));
+        if (dolphinsAvg2 > koalasAvg2 && dolphinsAvg2 >= 100) {
+            console.log("Đội Dolphins chiến thắng!");
+        }
+        else if (dolphinsAvg2 < koalasAvg2 && koalasAvg2 >= 100) {
+            console.log("Đội Koalas chiến thắng!");
+        }
+        else if (dolphinsAvg2 == koalasAvg2 && koalasAvg2 >= 100 && dolphinsAvg2 >= 100) {
+            console.log("Hai đội hòa nhau!");
+        }
+        else {
+            console.log("Không có đội nào chiến thắng!");
+
+        }
+
+        //data3
+        let dolphinsAvg3 = Avg(97, 112, 101);
+        let koalasAvg3 = Avg(109, 95, 106);
+
+        console.log("//test data3");
+        console.log("Điểm trung bình của đội Dolphins: " + dolphinsAvg3.toFixed(2));
+        console.log("Điểm trung bình của đội Koalas: " + koalasAvg3.toFixed(2));
+        if (dolphinsAvg3 > koalasAvg3 && dolphinsAvg3 >= 100) {
+            console.log("Đội Dolphins chiến thắng!");
+        }
+        else if (dolphinsAvg3 < koalasAvg3 && koalasAvg3 >= 100) {
+            console.log("Đội Koalas chiến thắng!");
+        }
+        else if (dolphinsAvg3 == koalasAvg3 && koalasAvg3 >= 100 && dolphinsAvg3 >= 100) {
+            console.log("Hai đội hòa nhau!");
+        }
+        else {
+            console.log("Không có đội nào chiến thắng!");
+
+        }
+    </script>
+</body>
+
+</html>
