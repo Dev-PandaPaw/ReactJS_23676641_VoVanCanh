@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge4
+    </title>
+</head>
+
+<body>
+    <script>
+        function tip_calculation(bill) {
+            let tip;
+            (bill >= 50 && bill <= 300) ? (tip = bill * 0.15) : (tip = bill * 0.2);
+            let total = bill + tip;
+            return console.log("Hóa đơn là " + bill + ", tiền tip là " + tip.toFixed(2) + ", và tổng giá trị là " + total.toFixed(2));
+
+        }
+        //data1: 275
+        tip_calculation(275);
+        //data2: 40
+        tip_calculation(40);
+        //data2: 430
+        tip_calculation(430);
+    </script>
+</body>
+
+</html>
