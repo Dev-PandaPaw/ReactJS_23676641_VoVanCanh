@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //calcAverage
+    const trungBinh = (a, b, c) => (a + b + c) / 3;
+    //checkWinner
+
+    const checkWinner = (dolPhinsAvg, koalasAvg) => {
+        if (dolPhinsAvg >= 2 * koalasAvg) {
+            return console.log(`Dolphins win (${dolPhinsAvg} vs. ${koalasAvg})`);
+        }
+        else if (koalasAvg >= 2 * dolPhinsAvg) {
+            return console.log(`Koalas win (${koalasAvg} vs. ${dolPhinsAvg})`);
+        }
+        else {
+            return console.log("No winner!");
+
+        }
+    }
+
+    //data1 
+    console.log("//test data1");
+
+    dolPhinsAvg1 = trungBinh(44, 23, 71);
+    koalasAvg1 = trungBinh(65, 54, 49);
+    checkWinner(dolPhinsAvg1, koalasAvg1);
+
+    //data2
+    console.log("//test data2");
+
+    dolPhinsAvg2 = trungBinh(85, 54, 41);
+    koalasAvg2 = trungBinh(23, 34, 27);
+    checkWinner(dolPhinsAvg2, koalasAvg2);
+
+
+
+
+
+
+
+</script>
+
+</html>
