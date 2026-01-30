@@ -1,4 +1,4 @@
-# 🎨 Application Interface Development  
+# Application Interface Development  
 *(ReactJS / NextJS)*
 
 ---
