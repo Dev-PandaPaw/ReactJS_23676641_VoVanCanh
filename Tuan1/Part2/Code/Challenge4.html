@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const calcTip = x => {
+            let tips;
+            (x >= 50 && x <= 300) ? (tips = x * 0.15) : (tips = x * 0.2);
+            return tips;
+        }
+
+        const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+        const totals = [];
+        const tips = [];
+
+        for (let i = 0; i < bills.length; i++) {
+            tips.push(calcTip(bills[i]));
+            totals.push(tips[i] + bills[i]);
+        }
+        console.log("//Mảng tips:");
+        console.log(tips);
+        console.log("//Mảng totals:");
+        console.log(totals);
+
+        //bonus
+        console.log("//Bonus");
+
+        const calcAverage = (arr) => {
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+
+            }
+            return sum / (arr.length);
+        }
+
+        console.log(`Trung bình mảng totals: ${calcAverage(totals)}`);
+
+
+
+
+
+    </script>
+</body>
+
+</html>
