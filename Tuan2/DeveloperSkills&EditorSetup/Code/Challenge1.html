@@ -1,0 +1,31 @@
+﻿<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge1</title>
+  </head>
+
+  <body>
+    <script>
+      const printForecast = function (arr) {
+        let duBao = "... ";
+
+        for (let i = 0; i < arr.length; i++) {
+          duBao += `${arr[i]}°C trong ${i + 1} ngày ... `;
+        }
+
+        console.log(duBao);
+      };
+
+      const data1 = [17, 21, 23];
+      const data2 = [12, 5, -5, 0, 4];
+
+      console.log("// dữ liệu 1");
+      printForecast(data1);
+
+      console.log("// dữ liệu 2");
+      printForecast(data2);
+    </script>
+  </body>
+</html>
