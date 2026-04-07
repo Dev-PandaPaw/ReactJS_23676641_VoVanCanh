@@ -1,0 +1,102 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge3</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      .images {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .images img {
+        width: 280px;
+        border-radius: 8px;
+      }
+
+      .parallel {
+        border: 3px solid #4caf50;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>loadNPause Challenge</h2>
+    <div class="images"></div>
+
+    <script>
+      const imgContainer = document.querySelector(".images");
+
+      // delay
+      const wait = function (seconds) {
+        return new Promise(function (resolve) {
+          setTimeout(resolve, seconds * 1000);
+        });
+      };
+
+      //  tao image
+      const createImage = function (imgPath) {
+        return new Promise(function (resolve, reject) {
+          const img = document.createElement("img");
+          img.src = imgPath;
+
+          img.addEventListener("load", function () {
+            imgContainer.append(img);
+            resolve(img);
+          });
+
+          img.addEventListener("error", function () {
+            reject(new Error("Image not found"));
+          });
+        });
+      };
+
+      // Part 1: loadNPause
+      const loadNPause = async function () {
+        try {
+          let img = await createImage(
+            "https://picsum.photos/600/350?random=41",
+          );
+          console.log("[Part 1] Image 1 loaded");
+          await wait(2);
+          img.style.display = "none";
+
+          img = await createImage("https://picsum.photos/600/350?random=42");
+          console.log("[Part 1] Image 2 loaded");
+          await wait(2);
+          img.style.display = "none";
+        } catch (err) {
+          console.error("[Part 1]", err.message);
+        }
+      };
+
+      // Part 2
+      const loadAll = async function (imgArr) {
+        try {
+          const imgs = imgArr.map((img) => createImage(img));
+          const imgsEl = await Promise.all(imgs);
+          imgsEl.forEach((img) => img.classList.add("parallel"));
+          console.log("[Part 2] All images loaded in parallel");
+        } catch (err) {
+          console.error("[Part 2]", err.message);
+        }
+      };
+
+      loadNPause().then(function () {
+        return loadAll([
+          "https://picsum.photos/600/350?random=51",
+          "https://picsum.photos/600/350?random=52",
+          "https://picsum.photos/600/350?random=53",
+        ]);
+      });
+    </script>
+  </body>
+</html>

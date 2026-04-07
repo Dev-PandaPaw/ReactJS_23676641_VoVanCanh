@@ -1,0 +1,80 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge1</title>
+  </head>
+
+  <body>
+    <script>
+      const getJSON = function (url, errorMsg = "Something went wrong") {
+        return fetch(url).then((response) => {
+          if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
+          return response.json();
+        });
+      };
+
+      // lay thong tin
+      const getLocationByCoords = function (lat, lng) {
+        return getJSON(
+          `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`,
+          "Problem getting location data",
+        ).then((dataGeo) => {
+          const city =
+            dataGeo.address.city ||
+            dataGeo.address.town ||
+            dataGeo.address.village ||
+            dataGeo.address.county ||
+            dataGeo.address.state;
+
+          return {
+            city,
+            country: dataGeo.address.country,
+          };
+        });
+      };
+
+      // Part 1
+      const whereAmI = function (lat, lng) {
+        return getLocationByCoords(lat, lng)
+          .then((location) => {
+            console.log(
+              `[Part 1] You are in ${location.city}, ${location.country}`,
+            );
+
+            return getJSON(
+              `https://restcountries.com/v3.1/name/${encodeURIComponent(location.country)}`,
+              "Country not found",
+            );
+          })
+          .then((dataCountry) => {
+            console.log("[Part 1] Country:", dataCountry[0].name.common);
+          })
+          .catch((err) => console.log("[Part 1]", err.message));
+      };
+
+      // Part 2
+      const whereAmIAsync = async function (lat, lng) {
+        try {
+          const location = await getLocationByCoords(lat, lng);
+          const dataCountry = await getJSON(
+            `https://restcountries.com/v3.1/name/${encodeURIComponent(location.country)}`,
+            "Country not found",
+          );
+
+          console.log(
+            `[Part 2] You are in ${location.city}, ${location.country}`,
+          );
+          console.log("[Part 2] Country:", dataCountry[0].name.common);
+        } catch (err) {
+          console.log("[Part 2]", err.message);
+        }
+      };
+
+      // test
+      whereAmI(52.508, 13.381);
+      // whereAmIAsync(19.037, 72.873);
+    </script>
+  </body>
+</html>

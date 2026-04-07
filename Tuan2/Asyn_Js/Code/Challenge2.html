@@ -1,0 +1,54 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge2</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+      }
+
+      .images img {
+        width: 300px;
+        display: block;
+        margin-bottom: 12px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>createImage Challenge</h2>
+    <div class="images"></div>
+
+    <script>
+      const imgContainer = document.querySelector(".images");
+
+      // Part 1: tao ham createImage tra ve Promise
+      const createImage = function (imgPath) {
+        return new Promise(function (resolve, reject) {
+          const img = document.createElement("img");
+          img.src = imgPath;
+
+          img.addEventListener("load", function () {
+            imgContainer.append(img);
+            resolve(img);
+          });
+
+          img.addEventListener("error", function () {
+            reject(new Error("Image not found"));
+          });
+        });
+      };
+
+      // Part 2
+      createImage("https://picsum.photos/600/350?random=31")
+        .then(() => console.log("[Part 2] Image loaded"))
+        .catch((err) => console.log("[Part 2]", err.message));
+
+      // createImage("https://invalid-domain-for-test/image.jpg").catch(err => console.log("[Part 2]", err.message));
+    </script>
+  </body>
+</html>
