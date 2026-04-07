@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 24px;
+        }
+
+        textarea {
+            width: 320px;
+            height: 140px;
+            display: block;
+            margin-bottom: 12px;
+            padding: 8px;
+        }
+
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea placeholder="underscore_case\nfirst_name\nSome_Variable"></textarea>
+    <button>Convert</button>
+
+    <script>
+        const textArea = document.querySelector('textarea');
+        const convertBtn = document.querySelector('button');
+
+        // xu ly du lieu khi bam nut
+        convertBtn.addEventListener('click', function () {
+            const rows = textArea.value.split('\n');
+
+            for (const [index, row] of rows.entries()) {
+                const [first, second] = row.toLowerCase().trim().split('_');
+
+                if (!first || !second) continue;
+
+                const camelCase = first + second[0].toUpperCase() + second.slice(1);
+                const output = `${camelCase.padEnd(20)}${'✅'.repeat(index + 1)}`;
+
+                console.log(output);
+            }
+        });
+    </script>
+</body>
+
+</html>

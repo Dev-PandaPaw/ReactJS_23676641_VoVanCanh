@@ -1,0 +1,84 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge2</title>
+  </head>
+
+  <body>
+    <script>
+      const game = {
+        team1: "Bayern Munich",
+        team2: "Borrussia Dortmund",
+        players: [
+          [
+            "Neuer",
+            "Pavard",
+            "Martinez",
+            "Alaba",
+            "Davies",
+            "Kimmich",
+            "Goretzka",
+            "Coman",
+            "Muller",
+            "Gnarby",
+            "Lewandowski",
+          ],
+          [
+            "Burki",
+            "Schulz",
+            "Hummels",
+            "Akanji",
+            "Hakimi",
+            "Weigl",
+            "Witsel",
+            "Hazard",
+            "Brandt",
+            "Sancho",
+            "Gotze",
+          ],
+        ],
+        score: "4:0",
+        scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+        date: "Nov 9th, 2037",
+        odds: {
+          team1: 1.33,
+          x: 3.25,
+          team2: 6.5,
+        },
+      };
+
+      // in nguoi ghi ban theo stt
+      for (const [index, player] of game.scored.entries()) {
+        console.log(`Goal ${index + 1}: ${player}`);
+      }
+
+      // tinh average odd
+      const odds = Object.values(game.odds);
+      let average = 0;
+
+      for (const odd of odds) {
+        average += odd;
+      }
+
+      average /= odds.length;
+      console.log("Average odd:", average);
+
+      // in odd
+      for (const [team, odd] of Object.entries(game.odds)) {
+        const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
+        console.log(`Odd of ${teamStr}: ${odd}`);
+      }
+
+      // dem so ban cua tung cau thu
+      const scorers = {};
+
+      for (const player of game.scored) {
+        scorers[player] = (scorers[player] || 0) + 1;
+      }
+
+      console.log(scorers);
+    </script>
+  </body>
+</html>
