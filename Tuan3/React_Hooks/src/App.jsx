@@ -5,7 +5,6 @@ import Challenge3 from "../Components/Challenge3.jsx";
 import Challenge4 from "../Components/Challenge4.jsx";
 import Challenge5 from "../Components/Challenge5.jsx";
 import Challenge6 from "../Components/Challenge6.jsx";
-import Challenge7 from "../Components/Challenge7.jsx";
 
 function App() {
   return (
@@ -16,7 +15,6 @@ function App() {
       {/* <Challenge4 /> */}
       {/* <Challenge5 /> */}
       <Challenge6 />
-      {/* <Challenge7 /> */}
     </main>
   );
 }
